@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+npm-debug.log
+bundle.js
+bundle.js.map
+public/css
+public/fonts
+public/images
+public/*.svg
+public/*.ttf
+public/*.eot
+/*.svg
+api/
