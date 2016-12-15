@@ -11,3 +11,4 @@ public/*.ttf
 public/*.eot
 /*.svg
 api/
+config.js
