@@ -1,3 +1,8 @@
+import {
+  AUTH_USER,
+  UNAUTH_USER
+} from '../actions/types';
+
 // is the user currently authenticated
 // set state to an object {} since there will probably serveral properties
 // to keep tractk of

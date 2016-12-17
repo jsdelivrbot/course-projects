@@ -13,9 +13,10 @@ export function signinUser({email, password}) {
       .then(response => {
         // If request is good ....
         // - Update state to indicate user is authenticated
-        dispatch({ type: AUTH_USER }); // we successfully authenticated
+        dispatch({ type: AUTH_USER }); // redux thunk in action - access to dispatch
 
-        // - Save the JWT token
+        // - Save the JWT token - to local storage
+        localStorage.setItem('token', response.data.token);
         // - Redirect to the route '/feature'
 
         // Programatic Navication
