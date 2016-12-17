@@ -1,0 +1,30 @@
+import axios from 'axios';
+import { browserHistory } from 'react-router';
+import { AUTH_USER } from './types';
+
+const ROOT_URL = 'http://localhost:3090';
+
+export function signinUser({email, password}) {
+  return function(dispatch) {
+    // Submit email/password to the server
+    // pass data as an object .... es6 key and value are the same so email: email
+    // can just be email. Same with password.
+    axios.post(`${ROOT_URL}/signin`, { email, password })
+      .then(response => {
+        // If request is good ....
+        // - Update state to indicate user is authenticated
+        dispatch({ type: AUTH_USER }); // we successfully authenticated
+
+        // - Save the JWT token
+        // - Redirect to the route '/feature'
+
+        // Programatic Navication
+        browserHistory.push('/feature');
+      })
+      .catch(() => {
+        // If request is bad ....
+        // - Show an error to the user
+
+      });
+  }
+}
