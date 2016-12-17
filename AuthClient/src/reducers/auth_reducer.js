@@ -1,6 +1,7 @@
 import {
   AUTH_USER,
-  UNAUTH_USER
+  UNAUTH_USER,
+  AUTH_ERROR
 } from '../actions/types';
 
 // is the user currently authenticated
@@ -12,6 +13,10 @@ export default function(state = {},action) {
       return { ...state, authenticated: true };
     case UNAUTH_USER:
       return { ...state, authenticated: false};
+    case AUTH_ERROR:
+      // piece of state called error
+      // available on global state as state.auth.error
+      return { ...state, error: action.payload };
   }
   return state;
 }

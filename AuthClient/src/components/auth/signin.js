@@ -10,6 +10,15 @@ class Signin extends Component {
     // need to do something to log user in
     this.props.signinUser({email, password});
   }
+  renderAlert() {
+    if (this.props.errorMessage) {
+      return (
+        <div className="alert alert-danger">
+          <strong>Oops!</strong> {this.props.errorMessage}
+        </div>
+      )
+    }
+  }
 
   render() {
     // handleSubmit is a helper that comes from redux form and email and
@@ -27,11 +36,20 @@ class Signin extends Component {
           <label>Password:</label>
           <input {...password} className="form-control" />
         </fieldset>
+
+        {this.renderAlert()}
+
         <button action="submit" className="btn btn-primary">Sign in</button>
       </form>
     )
   }
 }
+
+function mapStateToProps(state) {
+  // piece of state shows up inside component props as errorMessage
+  return { errorMessage: state.auth.error };
+}
+
 
 // options for the form
 // passing in the actions gives you access to all
@@ -39,10 +57,4 @@ class Signin extends Component {
 export default reduxForm({
     form: 'signin',
     fields: ['email', 'password']
-}, null, { signinUser })(Signin);
-// SignUpForm = reduxForm({
-//   form: 'signUp',
-//   validate
-// })(SignUpForm)
-//
-// export default SignUpForm = connect(mapStateToProps, { signUpUser })(SignUpForm)
+}, mapStateToProps, { signinUser })(Signin);

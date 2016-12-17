@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER } from './types';
+import {
+  AUTH_USER,
+  AUTH_ERROR
+} from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -25,7 +28,15 @@ export function signinUser({email, password}) {
       .catch(() => {
         // If request is bad ....
         // - Show an error to the user
-
+        // call AUTH_ERROR from here ...
+        dispatch(authError('Bad Login Info')); // have access to dispatch because of redux thunk
       });
+  }
+}
+
+export function authError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: error
   }
 }
