@@ -1,7 +1,8 @@
 import {
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  FETCH_MESSAGE
 } from '../actions/types';
 
 // is the user currently authenticated
@@ -17,6 +18,8 @@ export default function(state = {},action) {
       // piece of state called error
       // available on global state as state.auth.error
       return { ...state, error: action.payload };
+    case FETCH_MESSAGE:
+      return { ...state, message: action.payload };
   }
   return state;
 }
