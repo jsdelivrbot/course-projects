@@ -6,11 +6,28 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
 class Signup extends Component {
+  handleFormSubmit(formProps) {
+    // Call action creator to sign up user
+    // formProps is all the form properties from the form
+    // it is passed in from bind this
+    this.props.signupUser(formProps);
+  }
+
+  renderAlert() {
+      if (this.props.errorMessage) {
+        return (
+          <div className="alert alert-danger">
+            <strong>Oops!</strong> {this.props.errorMessage}
+          </div>
+        );
+      }
+  }
+
   render() {
     const { handleSubmit, fields: { email, password, passwordConfirm}} = this.props;
 
     return (
-      <form>
+      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
           <label>Email:</label>
           <input className="form-control" {...email} />
@@ -29,6 +46,8 @@ class Signup extends Component {
           {passwordConfirm.touched && passwordConfirm.error && <div className="error">{passwordConfirm.error}</div>}
         </fieldset>
 
+
+        {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Signup </button>
 
       </form>
@@ -60,8 +79,13 @@ function validate(formProps) {
 }
 
 
+// pull off error message and display to user if it exists
+function mapStateToProps(state) {
+  return { errorMessage: state.auth.error };
+}
+
 export default reduxForm({
   form: 'signup',
   fields: ['email', 'password', 'passwordConfirm'],
   validate
-})(Signup);
+}, mapStateToProps, actions)(Signup);

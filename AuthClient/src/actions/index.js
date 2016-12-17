@@ -35,6 +35,23 @@ export function signinUser({email, password}) {
   }
 }
 
+export function signupUser({email, password}) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/signup`, {email, password})
+      .then(response => {
+        // call the action
+        dispatch({type: AUTH_USER});
+        // set token in local storage
+        localStorage.setItem('token', response.data.token);
+        // push to secret screen
+        browserHistory.push('/feature');
+      })
+      // authError is a a function in this file, it gets passed a string
+      // then an error message goes down to all components
+      .catch(error => dispatch(authError(error.response.data.error)));
+  }
+}
+
 export function authError(error) {
   return {
     type: AUTH_ERROR,
