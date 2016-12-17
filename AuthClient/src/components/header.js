@@ -7,10 +7,11 @@ class Header extends Component {
   renderLinks() {
     if (this.props.authenticated) {
       // show a link to sign out
-      return
-      <li className="nav-item">
-        <Link className="nav-link" to="/signout">Sign Out </Link>
-      </li>
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="/signout">Sign Out </Link>
+        </li>
+      )
     } else {
       // show a link to sign in or sign up
       return [
@@ -46,4 +47,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect()(Header);
+export default connect(mapStateToProps)(Header);
