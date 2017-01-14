@@ -11,7 +11,7 @@ class App extends Component {
 
     return (
       <div>
-        <p >{count}</p>
+        <p>{count}</p>
         <p>
           <button onClick={() =>  this.props.increaseCount()}>Increase</button>
           <button onClick={() =>  this.props.decreaseCount()}>Decrease</button>
