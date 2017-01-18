@@ -2,10 +2,10 @@ import React from 'react';
 
 export default() => {
   return (
-    <div>Special recipe
+    <div>Profile
       <ul>
-        <li>1 cup sugar</li>
-        <li>1 cup salt</li>
+        <li>Name: Brendan</li>
+        <li>Description: monster hunter</li>
       </ul>
     </div>
   )

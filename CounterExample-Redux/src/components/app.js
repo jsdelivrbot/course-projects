@@ -37,24 +37,3 @@ const AppContainer = connect(
 )(App);
 
 export default AppContainer;
-
-
-
-
-//
-//
-// function mapStateToProps(state) {
-//   return { count: state.count };
-// }
-//
-// function mapDispatchToProps(dispatch) {
-//   return bindActionCreators( { increaseCount, decreaseCount }, dispatch );
-// }
-//
-// //export default connect(null, mapDispatchToProps)(PostsIndex);
-//
-// // shorter version
-// //export default connect(null, { fetchPosts: fetchPosts })(PostsIndex);
-//
-// // even shorter with ES6 syntax
-// export default connect(mapStateToProps, { increaseCount, decreaseCount })(App);
