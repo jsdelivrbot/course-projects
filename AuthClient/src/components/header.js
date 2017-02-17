@@ -8,13 +8,13 @@ class Header extends Component {
     const public_nav = ['signup', 'signin', 'etc...'];
     const private_nav = ['profiles', 'search', 'etc...'];
 
-    if (this.props.authenticated) {
-      map over private nav
-      return links
-    } else {
-      mape over pulic nav
-      return links
-    }
+    // if (this.props.authenticated) {
+    //   map over private nav
+    //   return links
+    // } else {
+    //   mape over pulic nav
+    //   return links
+    // }
 
 
 

@@ -14,6 +14,8 @@ export function signinUser({email, password}) {
     // Submit email/password to the server
     // pass data as an object .... es6 key and value are the same so email: email
     // can just be email. Same with password.
+
+    console.log(email);
     axios.post(`${ROOT_URL}/signin`, { email, password })
       .then(response => {
         // If request is good ....
