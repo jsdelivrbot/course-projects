@@ -3,25 +3,8 @@ import 'assets/stylesheets/main.css';
 import { createStore } from 'redux';
 
 
-// WRONG WAY TO CREATE A REDUCER
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case 'ADD_RECIPE':
-//       state.recipes.push({ name: action.name });
-//   }
-//   return state;
-// };
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ADD_RECIPE':
-      return Object.assign({}, state, {
-        recipes: state.recipes.concat({
-          name: action.name
-        });
-      })
-  }
-  return state;
-}
+
+
 
 const initialState = {
    recipes: [
