@@ -1,38 +1,58 @@
 var React = require('react');
+var PropTypes = require('prop-types');
+
+// Pull this out into a new component. If this needs to be reused somewhere else
+// it can be pulled into a new file
+function SelectLanguage (props) {
+  var languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
+
+  return (
+    <ul className="languages">
+        {languages.map(function(lang) {
+          return (
+            <li
+              style={lang === props.selectedLanguage ? { color: '#d0021b' } : null }
+              onClick={props.onSelect.bind(null, lang)}
+              key={lang}>
+              {lang}
+            </li>
+          )
+        })}
+    </ul>
+  )
+}
+
+SelectLanguage.propTypes = {
+  selectedLanguage: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
+}
+
 
 class Popular extends React.Component {
   constructor (props) {
-      super(props);
+      super();
       this.state = {
-        selectedLanguage: 'All'
+        selectedLanguage: 'All',
       };
-
-      this.updateLangauge = this.updateLanguage.bind(this);
+      this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   updateLanguage(lang) {
-      this.setState(function () {
-        return {
-          selectedLanguage: lang
-        }
-      });
+    this.setState(function () {
+      return {
+        selectedLanguage: lang,
+      }
+    });
   }
 
   render() {
-    var languages = ['All', 'Javascript', 'Ruby', 'Java', 'CSS', 'Python'];
     return (
-      <ul className="languages">
-          {languages.map(function(lang) {
-            return (
-              <li
-                style={lang === this.state.selectedLanguage ? { color: '#d0021b' } : null }
-                onClick={this.updateLangauge.bind(null, lang)}
-                key={lang}>
-                {lang}
-              </li>
-            )
-          }, this)}
-      </ul>
+      <div>
+        <SelectLanguage
+          selectedLanguage={this.state.selectedLanguage}
+          onSelect={this.updateLanguage}
+        />
+      </div>
     )
   }
 }
