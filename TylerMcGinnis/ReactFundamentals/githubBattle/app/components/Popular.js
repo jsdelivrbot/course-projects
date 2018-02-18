@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 var api = require('../utils/api');
+var Loading = require('./Loading');
 
 
 // Pull this out into a new component. If this needs to be reused somewhere else
@@ -103,7 +104,7 @@ class Popular extends React.Component {
 
         {/* Load to prevent null error - passing nothing before the fetch is finished  */}
         {!this.state.repos
-          ? <p>LOADING!</p>
+          ? <Loading text="downloading" speed="10" />
           : <RepoGrid repos={this.state.repos} />}
       </div>
     )
