@@ -1,0 +1,58 @@
+Arguments: 
+  /Users/jennycleary/.nvm/versions/node/v8.1.4/bin/node /usr/local/bin/yarn
+
+PATH: 
+  /Users/jennycleary/.nvm/versions/node/v8.1.4/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.1.4
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "music-client",
+    "version": "0.1.0",
+    "private": true,
+    "proxy": "http://localhost:3001",
+    "devDependencies": {
+      "react-scripts": "0.9.5",
+      "fsr-helpers": "file:../../fsr-helpers"
+    },
+    "dependencies": {
+      "isomorphic-fetch": "2.2.1",
+      "react": "15.4.2",
+      "react-dom": "15.4.2",
+      "react-router-dom": "4.0.0",
+      "semantic-ui": "2.2.6"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://github.com/derekslife/wrench-js/tarball/156eaceed68ed31ffe2a3ecfbcb2be6ed1417fb2: Request failed "404 Not Found"
+      at Request.handleRequestError (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:56351:20)
+      at emitOne (events.js:115:13)
+      at Request.emit (events.js:210:7)
+      at Request.onRequestResponse (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:115128:10)
+      at emitOne (events.js:115:13)
+      at ClientRequest.emit (events.js:210:7)
+      at HTTPParser.parserOnIncomingClient (_http_client.js:564:21)
+      at HTTPParser.parserOnHeadersComplete (_http_common.js:116:23)
+      at TLSSocket.socketOnData (_http_client.js:453:20)
+      at emitOne (events.js:115:13)

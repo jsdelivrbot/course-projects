@@ -1,2 +1,0 @@
-
-const ingredientsReducer = (ingredients, action) => { ... };
